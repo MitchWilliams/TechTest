@@ -1,0 +1,69 @@
+﻿@model IEnumerable<TechTest.Models.Timesheet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Generate Timesheets", "GenerateTimesheets")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.timesheetTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.candidateName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clientName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.startDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.timesheetJob)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.timesheetTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.candidateName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jobTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.startDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.timesheetJob)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.timesheetId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.timesheetId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.timesheetId })
+        </td>
+    </tr>
+}
+
+</table>
